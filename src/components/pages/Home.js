@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Div } from "../../stylesJs/home";
 import { useState } from "react";
 import { RiArrowRightLine } from "react-icons/ri";
-import dynamic from "next/dynamic";
 import SearchBar from "../searchBar";
 import { toTitleCase } from "../helper";
 import Loading from "../LoadingSpinner";
