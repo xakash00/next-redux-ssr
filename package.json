@@ -1,5 +1,12 @@
 {
+  "name":"next-redux",
   "private": true,
+  "main":"index.js",
+  "engines": {
+    "node": "14.17.0",
+  "npm": "~1.0.20"
+},
+
   "scripts": {
     "dev": "next",
     "build": "next build",
