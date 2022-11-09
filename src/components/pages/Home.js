@@ -6,10 +6,10 @@ import { RiArrowRightLine } from "react-icons/ri";
 import dynamic from "next/dynamic";
 import SearchBar from "../searchBar";
 import { toTitleCase } from "../helper";
+import Loading from "../LoadingSpinner";
 function Page() {
   let data = useSelector((state) => state.placeholderReducer);
   const [search, setSearch] = useState("");
-  const Loading = dynamic(() => import("../LoadingSpinner"));
 
   const filterDataFunction = data?.placeholderData?.filter((item) => {
     if (search === "") {
