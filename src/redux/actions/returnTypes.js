@@ -1,0 +1,17 @@
+export const LOADING = "LOADING";
+export const LOADED = "LOADED";
+export const FAILED = "FAILED";
+
+export const SINGLE_LOADING = "SINGLE_LOADING";
+export const SINGLE_LOADED = "SINGLE_LOADED";
+export const SINGLE_FAILED = "SINGLE_FAILED";
+
+export const COMMENTS_LOADING = "COMMENTS_LOADING";
+export const COMMENTS_LOADED = "COMMENTS_LOADED";
+export const COMMENTS_LOADING_FAILED = "COMMENTS_LOADING_FAILED";
+
+export const MEME_LOADING = "MEME_LOADING";
+export const MEME_LOADED = "MEME_LOADED";
+export const MEME_LOADING_FAILED = "MEME_LOADING_FAILED";
+
+
