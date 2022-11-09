@@ -1,11 +1,8 @@
-import Head from "next/head";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import Loading from "../LoadingSpinner";
+import React from "react";
+import { useSelector } from "react-redux";
 import Meta from "../MetaHead";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import { CommentDiv } from "../../stylesJs/header";
 import CommentCard from "../cards/commentCard";
 import PostCard from "../cards/postCard";
 import { useRouter } from "next/router";

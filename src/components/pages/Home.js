@@ -5,7 +5,6 @@ import { useState } from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 import SearchBar from "../searchBar";
 import { toTitleCase } from "../helper";
-import Loading from "../LoadingSpinner";
 function Page() {
   let data = useSelector((state) => state.placeholderReducer);
   const [search, setSearch] = useState("");
@@ -18,7 +17,7 @@ function Page() {
     }
   });
   return data.loading === true ? (
-    <Loading />
+    <>Loading...</>
   ) : (
     <>
       <div className="container-fluid">
