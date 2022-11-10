@@ -12,11 +12,11 @@ import PrivateRoute from "../../src/components/authCheck/PrivateRoute";
 
 const Post = () => {
   return (
-    <PrivateRoute>
+    <>
       <HeaderLayout>
         <SinglePost />
       </HeaderLayout>
-    </PrivateRoute>
+    </>
   );
 };
 
