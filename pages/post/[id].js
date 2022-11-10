@@ -29,14 +29,6 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
     console.log("ending saga on server now...");
     ctx.store.dispatch(END);
   }
-  if (!ctx.req.headers.cookie.includes("isLogin")) {
-    return {
-      redirect: {
-        permanent: false,
-        destination: `/signup?next=post/${ctx.query.id}`,
-      },
-    };
-  }
   await ctx.store.sagaTask.toPromise();
 });
 

@@ -81,21 +81,6 @@ const HeaderLayout = ({ children }) => {
                   <span>Next-Redux</span>
                 </a>
               </Link>
-              <div className="ms-auto d-flex align-items-center justify-content-between">
-                <Link href="/">
-                  <NavBtn className="me-3">Home</NavBtn>
-                </Link>
-                <Link href="/memes">
-                  <NavBtn className="me-3">Memes</NavBtn>
-                </Link>
-                {isCookieExist ? (
-                  <NavBtn onClick={handleShow}>Signout</NavBtn>
-                ) : (
-                  <Link href="/signup">
-                    <NavBtn>Signup</NavBtn>
-                  </Link>
-                )}
-              </div>
             </div>
           </nav>
         )}
@@ -131,17 +116,6 @@ const HeaderLayout = ({ children }) => {
               <Link href="/">
                 <div className="text-center">Home</div>
               </Link>
-            </li>
-            <li className="list-group-item">
-              {isCookieExist ? (
-                <div className="text-center" onClick={handleShow}>
-                  Signout
-                </div>
-              ) : (
-                <Link href="/signup">
-                  <div className="text-center">Signup</div>
-                </Link>
-              )}
             </li>
           </ul>
         </Sidebar>
