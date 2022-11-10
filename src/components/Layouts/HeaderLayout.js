@@ -85,6 +85,9 @@ const HeaderLayout = ({ children }) => {
                 <Link href="/">
                   <NavBtn className="me-3">Home</NavBtn>
                 </Link>
+                <Link href="/memes">
+                  <NavBtn className="me-3">Memes</NavBtn>
+                </Link>
                 {isCookieExist ? (
                   <NavBtn onClick={handleShow}>Signout</NavBtn>
                 ) : (
