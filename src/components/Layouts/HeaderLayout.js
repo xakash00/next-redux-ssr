@@ -81,21 +81,6 @@ const HeaderLayout = ({ children }) => {
                   <span>Next-Redux</span>
                 </a>
               </Link>
-              <div className="d-flex align-items-center justify-content-between">
-                <Link href="/">
-                  <div className="me-5">Home</div>
-                </Link>
-                {isCookieExist && (
-                  <button className="btn" onClick={_logout}>
-                    Signout
-                  </button>
-                )}
-                {!isCookieExist && (
-                  <Link href="/signup">
-                    <button className="btn">Signup</button>
-                  </Link>
-                )}
-              </div>
             </div>
           </nav>
         )}
@@ -125,24 +110,12 @@ const HeaderLayout = ({ children }) => {
         <Sidebar sidebar={sidebar === true ? "0%" : "-100%"}>
           <ul
             onClick={() => setSidebar(false)}
-            className="list-group list-group-flush text-center"
+            className="list-group list-group-flush"
           >
             <li className="list-group-item">
               <Link href="/">
                 <div className="text-center">Home</div>
               </Link>
-            </li>
-            <li className="list-group-item">
-              {isCookieExist && (
-                <button className="btn text-center" onClick={_logout}>
-                  Signout
-                </button>
-              )}
-              {!isCookieExist && (
-                <Link href="/signup">
-                  <button className="btn text-center">Signup</button>
-                </Link>
-              )}
             </li>
           </ul>
         </Sidebar>
