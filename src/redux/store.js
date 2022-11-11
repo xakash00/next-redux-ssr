@@ -3,6 +3,7 @@ import { createWrapper } from 'next-redux-wrapper'
 import {configureStore} from "@reduxjs/toolkit"
 import rootReducer from './reducers/index'
 import rootSaga from './sagas/rootSaga'
+import logger from 'redux-logger'
 
 // const bindMiddleware = (middleware) => {
 //   if (process.env.NODE_ENV !== 'production') {
@@ -14,7 +15,7 @@ import rootSaga from './sagas/rootSaga'
 
 export const makeStore = (context) => {
   let sagaMiddleware = createSagaMiddleware();
-  const middleware = [sagaMiddleware];
+  const middleware = [sagaMiddleware, logger];
   const store = configureStore({
     reducer: rootReducer,
     middleware: getDefaultMiddleware =>
