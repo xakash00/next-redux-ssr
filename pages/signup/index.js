@@ -59,7 +59,7 @@ const Signup = (props) => {
                   type="email"
                   className="form-control border border-primary"
                   id="exampleInputEmail1"
-                  placeholder="Email"
+                  placeholder="Random Email"
                   aria-describedby="emailHelp"
                   name="email"
                 />
@@ -77,7 +77,7 @@ const Signup = (props) => {
                   {...register("password")}
                   type="password"
                   className="form-control border border-primary"
-                  placeholder="Password"
+                  placeholder="Random Password"
                   id="exampleInputPassword1"
                   name="password"
                 />
@@ -111,7 +111,7 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
     return {
       redirect: {
         permanent: false,
-        destination: "/",
+        destination: "/", 
       },
     };
   }
