@@ -11,7 +11,7 @@ const Meta = ({ title, description, keywords }) => {
           type="image/x-icon"
           href="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
         ></link>
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={`Akash-${title}`} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
