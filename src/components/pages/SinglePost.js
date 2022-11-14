@@ -36,7 +36,7 @@ const SinglePost = () => {
     <>
       <Meta
         title={toTitleCase(data?.postData?.title)}
-        description={data?.postData?.title}
+        description={data?.postData?.body}
         keywords={data?.postData?.body.split(" ")}
       />
       <div>
