@@ -81,6 +81,21 @@ const HeaderLayout = ({ children }) => {
                   <span>Next-Redux</span>
                 </a>
               </Link>
+              <div className="d-flex align-items-center justify-content-between">
+                <Link href="/">
+                  <div className="me-5">Home</div>
+                </Link>
+                {isCookieExist && (
+                  <button className="btn" onClick={_logout}>
+                    Signout
+                  </button>
+                )}
+                {!isCookieExist && (
+                  <Link href="/signup">
+                    <button className="btn">Signup</button>
+                  </Link>
+                )}
+              </div>
             </div>
           </nav>
         )}
@@ -116,6 +131,18 @@ const HeaderLayout = ({ children }) => {
               <Link href="/">
                 <div className="text-center">Home</div>
               </Link>
+            </li>
+            <li className="list-group-item">
+              {isCookieExist && (
+                <div className="text-center" onClick={_logout}>
+                  Signout
+                </div>
+              )}
+              {!isCookieExist && (
+                <Link href="/signup">
+                  <div className="text-center">Signup</div>
+                </Link>
+              )}
             </li>
           </ul>
         </Sidebar>
