@@ -22,21 +22,20 @@ const Post = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   console.log("inside getStaticProps.. store.dispatch");
-  console.log(ctx, "aslkiub");
+  console.log(ctx.req.cookies, "aslkiub");
   if (!ctx.store.getState().placeholderData) {
     ctx.store.dispatch(singlePostAction(ctx.query.id));
     ctx.store.dispatch(fetchCommentsAction(ctx.query.id));
     console.log("ending saga on server now...");
     ctx.store.dispatch(END);
   }
-  // if (!ctx.req.headers.cookie.includes("isLogin")) {
-  //   return {
-  //     redirect: {
-  //       permanent: false,
-  //       destination: `/signup?next=post/${ctx.query.id}`,
-  //     },
-  //   };
-  // }
+  if (!ctx.req.cookies.isLogin) {
+    return {
+      redirect: {
+        destination: `/signup?next=post/${ctx.query.id}`,
+      },
+    };
+  }
   await ctx.store.sagaTask.toPromise();
 });
 

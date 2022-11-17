@@ -107,11 +107,10 @@ const Signup = (props) => {
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   console.log("inside getStaticProps.. store.dispatch");
   console.log(ctx.req.headers.cookie.includes("isLogin"), "aslkiub");
-  if (ctx.req.headers.cookie.includes("isLogin")) {
+  if (ctx.req.cookies.isLogin) {
     return {
       redirect: {
-        permanent: false,
-        destination: "/", 
+        destination: "/",
       },
     };
   }
