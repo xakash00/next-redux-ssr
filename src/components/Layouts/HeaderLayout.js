@@ -85,7 +85,7 @@ const HeaderLayout = ({ children }) => {
                 <Link href="/">
                   <div className="me-5">Home</div>
                 </Link>
-                {isCookieExist && (
+                {/* {isCookieExist && (
                   <button className="btn" onClick={_logout}>
                     Signout
                   </button>
@@ -94,7 +94,7 @@ const HeaderLayout = ({ children }) => {
                   <Link href="/signup">
                     <button className="btn">Signup</button>
                   </Link>
-                )}
+                )} */}
               </div>
             </div>
           </nav>
@@ -132,7 +132,7 @@ const HeaderLayout = ({ children }) => {
                 <div className="text-center">Home</div>
               </Link>
             </li>
-            <li className="list-group-item">
+            {/* <li className="list-group-item">
               {isCookieExist && (
                 <div className="text-center" onClick={_logout}>
                   Signout
@@ -143,7 +143,7 @@ const HeaderLayout = ({ children }) => {
                   <div className="text-center">Signup</div>
                 </Link>
               )}
-            </li>
+            </li> */}
           </ul>
         </Sidebar>
         <Modal
