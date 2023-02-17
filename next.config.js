@@ -3,5 +3,6 @@ module.exports = {
   reactStrictMode: true,
   experimental: {
     forceSwcTransforms: true,
+    nextScriptWorkers: true,
   },
 };
