@@ -7,8 +7,7 @@ import PostCard from "../cards/postCard";
 import { useRouter } from "next/router";
 import { toTitleCase } from "../helper";
 import { CiCircleChevLeft } from "react-icons/ci";
-import Head from "next/head";
-const SinglePost = ({ image }) => {
+const SinglePost = () => {
   const data = useSelector((store) => store.singlePostReducer);
   const commentsData = useSelector((store) => store.commentsReducer);
   const router = useRouter();
@@ -29,28 +28,11 @@ const SinglePost = ({ image }) => {
     <p>Loading...</p>
   ) : (
     <>
-    <Head>
-        <title>{data?.postData?.title}</title>
-        <link
-          rel="icon"
-          type="image/x-icon"
-          href={image}
-        ></link>
-        <meta property="og:title" content={`Akash-${data?.postData?.title}`} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content={data.image}
-        />
-        <meta
-          property="og:description"
-          name="description"
-          content={data?.postData?.body}
-        />
-        <meta name="keywords" content={data?.postData?.body.split(" ")} />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="theme-color" content="#000"></meta>
-      </Head>
+      <Meta
+        title={toTitleCase(data?.postData?.title)}
+        description={data?.postData?.body}
+        keywords={data?.postData?.body.split(" ")}
+      />
       <div>
         <button
           onClick={() => {
