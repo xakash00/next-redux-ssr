@@ -9,24 +9,22 @@ import {
 import HeaderLayout from "../../src/components/Layouts/HeaderLayout";
 import SinglePost from "../../src/components/pages/SinglePost";
 import PrivateRoute from "../../src/components/authCheck/PrivateRoute";
+import Head from "next/head";
 
-const Post = () => {
+const Post = (props) => {
   return (
     <>
       <HeaderLayout>
-        <SinglePost />
+        <SinglePost image={props.data} />
       </HeaderLayout>
     </>
   );
 };
 
 export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
-  console.log("inside getStaticProps.. store.dispatch");
-  console.log(ctx.req.cookies, "aslkiub");
   if (!ctx.store.getState().placeholderData) {
     ctx.store.dispatch(singlePostAction(ctx.query.id));
     ctx.store.dispatch(fetchCommentsAction(ctx.query.id));
-    console.log("ending saga on server now...");
     ctx.store.dispatch(END);
   }
   // if (!ctx.req.cookies.isLogin) {
@@ -37,6 +35,17 @@ export const getServerSideProps = wrapper.getServerSideProps(async (ctx) => {
   //   };
   // }
   await ctx.store.sagaTask.toPromise();
+  const res = await fetch(`https://dog.ceo/api/breeds/image/random`)
+  const data = await res.json()
+
+  if (!data) {
+    return {
+      notFound: true,
+    }
+  }
+  return {
+    props: { data:data.message }, // will be passed to the page component as props
+  }
 });
 
 export default Post;

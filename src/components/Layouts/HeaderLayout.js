@@ -11,7 +11,7 @@ import {
 } from "../../stylesJs/header";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import Logo from "../../../assets/logo.svg";
+import Logo from "../../../assets/logo.png";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
   closeSidebar,
@@ -20,9 +20,8 @@ import {
 import Image from "next/image";
 
 const Headerlayout = ({ children }) => {
-  const [offset, setOffset] = useState(100);
+  const [offset, setOffset] = useState();
   const state = useSelector((store) => store.toggleReducer);
-  console.log(state.isOpen);
   const dispatch = useDispatch();
   useEffect(() => {
     window.addEventListener("scroll", (event) => {
