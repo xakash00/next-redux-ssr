@@ -1,4 +1,5 @@
 import React from "react";
+import { FooterText, Title } from "../../stylesJs/home";
 import { toTitleCase } from "../helper";
 
 const PostCard = ({ data }) => {
@@ -9,10 +10,10 @@ const PostCard = ({ data }) => {
           <h6>Post Id - {data?.postData?.id}</h6>
         </div>
         <ul className="list-group list-group-flush">
-          <li className="list-group-item">
+          <Title className="list-group-item">
             {toTitleCase(data?.postData?.title)}
-          </li>
-          <li className="list-group-item">{data?.postData?.body}</li>
+          </Title>
+          <FooterText className="list-group-item">{data?.postData?.body}</FooterText>
         </ul>
       </div>
     </>

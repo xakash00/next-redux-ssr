@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Meta from "../MetaHead";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import CommentCard from "../cards/commentCard";
 import PostCard from "../cards/postCard";
@@ -27,11 +26,7 @@ const SinglePost = () => {
       <h3 className="text-center">Post Not Found</h3>
     </>
   ) : data.loading === true ? (
-    <SkeletonTheme baseColor="#ccc" highlightColor="#fff">
-      <div className="d-flex justify-content-center">
-        <Skeleton height={"18rem"} width={"18rem"} count={1} />
-      </div>
-    </SkeletonTheme>
+    <p>Loading...</p>
   ) : (
     <>
       <Meta
@@ -53,11 +48,7 @@ const SinglePost = () => {
         <div>
           {commentsData.comments.map((item, index) => {
             return commentsData.loading === true ? (
-              <SkeletonTheme key={index} baseColor="#ccc" highlightColor="#fff">
-                <div className="d-flex justify-content-center mt-5">
-                  <Skeleton height={"10rem"} width={"50rem"} count={1} />
-                </div>
-              </SkeletonTheme>
+              "loading..."
             ) : (
               <CommentCard item={item} key={item.id} />
             );

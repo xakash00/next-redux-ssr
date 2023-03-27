@@ -8,3 +8,7 @@ export const FETCH_COMMENTS = "FETCH_COMMENTS";
 export const THEME_CHANGE = "THEME_CHANGE";
 
 
+
+export const OPEN = "OPEN";
+export const CLOSE = "CLOSE";
+export const TOGGLE = "TOGGLE";

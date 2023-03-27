@@ -1,5 +1,6 @@
 import React from "react";
 import { CommentDiv } from "../../stylesJs/header";
+import { CommentId, FooterText, Title } from "../../stylesJs/home";
 
 const CommentCard = ({item}) => {
   return (
@@ -8,12 +9,11 @@ const CommentCard = ({item}) => {
         className="card border-0 shadow text-dark bg-light mb-3 mt-5 m-auto"
       >
         <div className="card-header">
-          {item.email}
-          <span className="float-end">Comment Id - {item.id}</span>
+          <CommentId>{item.email}</CommentId>
         </div>
         <div className="card-body">
-          <h5 className="card-title">{item.name}</h5>
-          <p className="card-text">{item.body}</p>
+          <Title className="card-title">{item.name}</Title>
+          <FooterText className="card-text">{item.body}</FooterText>
         </div>
       </CommentDiv>
     </>

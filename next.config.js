@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   reactStrictMode: true,
-  experimental: {
-    forceSwcTransforms: true,
-    nextScriptWorkers: true,
-  },
+  // experimental: {
+  //   forceSwcTransforms: true,
+  //   nextScriptWorkers: true,
+  // },
 };

@@ -1,8 +1,7 @@
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import { Div } from "../../stylesJs/home";
+import { CardComponent, Div, Ellipsis, FooterText } from "../../stylesJs/home";
 import { useState } from "react";
-import { RiArrowRightLine } from "react-icons/ri";
 import SearchBar from "../searchBar";
 import { toTitleCase } from "../helper";
 function Page() {
@@ -20,21 +19,27 @@ function Page() {
     <>Loading...</>
   ) : (
     <>
-      <div className="container-fluid">
+      <div className="container">
         <SearchBar
           search={search}
           onChange={(e) => {
             setSearch(e.target.value);
           }}
         />
-        <h5 className="mt-3">
-          {filterDataFunction.length !== 0 &&
+        <h5 className="mt-5 mb-4">
+          {search.length !== 0 &&
             `${filterDataFunction.length} results
           found`}
         </h5>
-        {filterDataFunction.map((item, index) => {
-          return <Card key={item.id} item={item} />;
-        })}
+        <Div className="row">
+          {filterDataFunction.map((item, index) => {
+            return (
+              <Div className="col-md-6 col-xl-4 col-sm-12">
+                <Card key={item.id} item={item} />
+              </Div>
+            );
+          })}
+        </Div>
         {filterDataFunction.length === 0 && (
           <h6 className="text-center mt-5">
             Sorry! No results for your search
@@ -48,44 +53,32 @@ function Page() {
 export default Page;
 
 const Card = ({ item }) => {
-  const [textSlice, setTextSlice] = useState(false);
   const [isHover, setIsHover] = useState(false);
 
   return (
     <>
-      <Div
+      <CardComponent
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         onFocus={() => setIsHover(true)}
         onFocusCapture={() => setIsHover(true)}
-        className="card border-0 shadow"
+        className="card"
       >
         <div className="card-body">
-          <blockquote className="blockquote mb-0">
-            <Link href={`/post/${item.id}`}>
-              <p>
+          <Link href={`/post/${item.id}`}>
+            <blockquote className="blockquote mb-0">
+              <Ellipsis>
                 {item.id}-{toTitleCase(item.title)}
-                {isHover == true && (
-                  <span className="ms-1">
-                    <RiArrowRightLine color="#28d" />
-                  </span>
-                )}
-              </p>
-            </Link>
-            <footer className="blockquote-footer">
-              {textSlice === true ? item.body : item.body.slice(0, 160)}
-              {item.body.length > 173 && (
-                <span
-                  className="text-primary"
-                  onClick={() => setTextSlice((prev) => !prev)}
-                >
-                  {textSlice === true ? "....Read Less" : ".....Read More"}
-                </span>
-              )}
-            </footer>
-          </blockquote>
+              </Ellipsis>
+
+              <FooterText>
+                {item.body.slice(0, 70)}
+                <span className="text-primary">....Read More</span>
+              </FooterText>
+            </blockquote>
+          </Link>
         </div>
-      </Div>
+      </CardComponent>
     </>
   );
 };
