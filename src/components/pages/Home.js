@@ -37,7 +37,7 @@ function Page() {
             `${filterDataFunction.length} results
           found`}
         </h5>
-        <Div className="row">
+        <div className="row">
           {filterDataFunction.map((item, index) => {
             return (
               <Div  key={item.id}className="col-md-6 col-xl-4 col-sm-12">
@@ -45,7 +45,7 @@ function Page() {
               </Div>
             );
           })}
-        </Div>
+        </div>
         {filterDataFunction.length === 0 && (
           <h6 className="text-center mt-5">
             Sorry! No results for your search
