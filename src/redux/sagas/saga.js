@@ -33,7 +33,11 @@ function* fetchSinglePost(action) {
     yield put({ type: SINGLE_LOADING });
     const res = yield call(placeholderApis.singlePostApi, action.id);
     const meta = yield call(placeholderApis.metaImageApi);
-    yield put({ type: SINGLE_LOADED, id: action.id, data:{data: res.data,image:meta?.data?.message }});
+    yield put({
+      type: SINGLE_LOADED,
+      id: action.id,
+      data: { data: res.data, image: meta?.data?.file },
+    });
   } catch (err) {
     console.log(err);
     yield put({
@@ -48,7 +52,6 @@ export function* fetchCommentsWorker(action) {
   try {
     yield put({ type: COMMENTS_LOADING });
     const response = yield call(placeholderApis.commentApi, action.id);
-    console.log(response);
     yield put({
       type: COMMENTS_LOADED,
       id: action.id,
