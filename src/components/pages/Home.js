@@ -1,6 +1,12 @@
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import { CardComponent, Div, Ellipsis, FooterText } from "../../stylesJs/home";
+import {
+  CardComponent,
+  Div,
+  Ellipsis,
+  FooterText,
+  ReadMore,
+} from "../../stylesJs/home";
 import { useState } from "react";
 import SearchBar from "../searchBar";
 import { toTitleCase } from "../helper";
@@ -34,8 +40,8 @@ function Page() {
         <Div className="row">
           {filterDataFunction.map((item, index) => {
             return (
-              <Div className="col-md-6 col-xl-4 col-sm-12">
-                <Card key={item.id} item={item} />
+              <Div  key={item.id}className="col-md-6 col-xl-4 col-sm-12">
+                <Card item={item} />
               </Div>
             );
           })}
@@ -57,15 +63,15 @@ const Card = ({ item }) => {
 
   return (
     <>
-      <CardComponent
-        onMouseEnter={() => setIsHover(true)}
-        onMouseLeave={() => setIsHover(false)}
-        onFocus={() => setIsHover(true)}
-        onFocusCapture={() => setIsHover(true)}
-        className="card"
-      >
-        <div className="card-body">
-          <Link href={`/post/${item.id}`}>
+      <Link href={`/post/${item.id}`}>
+        <CardComponent
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          onFocus={() => setIsHover(true)}
+          onFocusCapture={() => setIsHover(true)}
+          className="card"
+        >
+          <div className="card-body">
             <blockquote className="blockquote mb-0">
               <Ellipsis>
                 {item.id}-{toTitleCase(item.title)}
@@ -73,12 +79,14 @@ const Card = ({ item }) => {
 
               <FooterText>
                 {item.body.slice(0, 70)}
-                <span className="text-primary">....Read More</span>
+                <ReadMore hover={isHover} className="text-primary">
+                  ....Read More
+                </ReadMore>
               </FooterText>
             </blockquote>
-          </Link>
-        </div>
-      </CardComponent>
+          </div>
+        </CardComponent>
+      </Link>
     </>
   );
 };

@@ -7,14 +7,22 @@ export const Div = styled.div`
   }
 `;
 export const CardComponent = styled.div`
- cursor: pointer;
- height: auto;
+  cursor: pointer;
+  height: auto;
   margin-bottom: 0.7rem;
-  transition: transform 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
+  &:hover {
+    box-shadow: 0px 0px 8px #ccc;
+  }
   @media screen and (max-width: 700px) {
     width: 100%;
   }
-`
+`;
+
+export const ReadMore = styled.span`
+  transition: font-weight 0.2s ease;
+  font-weight: ${(props) => (props.hover === true ? "500" : "400")};
+`;
 export const Ellipsis = styled.div`
   white-space: nowrap;
   overflow: hidden;
@@ -30,9 +38,9 @@ export const Title = styled.div`
   color: #737373;
 `;
 export const CommentId = styled.span`
- color: #2e2e2e;
+  color: #2e2e2e;
   font-size: 16px;
-`
+`;
 export const FooterText = styled.div`
   color: #2e2e2e;
   font-size: 16px;
@@ -45,10 +53,10 @@ export const Input = styled.input`
   border-radius: 8px;
   padding: 10px;
   &:focus {
-    outline:none;
+    outline: none;
   }
-  ::placeholder{
-    font-size:15px;
+  ::placeholder {
+    font-size: 15px;
   }
   @media screen and (max-width: 700px) {
     width: 100%;

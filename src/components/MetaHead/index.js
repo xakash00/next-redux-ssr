@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 
-const Meta = ({ title, description, keywords }) => {
+const Meta = ({ title, description, keywords,image }) => {
   return (
     <>
       <Head>
@@ -9,13 +9,13 @@ const Meta = ({ title, description, keywords }) => {
         <link
           rel="icon"
           type="image/x-icon"
-          href="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
+          href={image?image:"https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"}
         ></link>
         <meta property="og:title" content={`Akash-${title}`} />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"
+          content={image?image:"https://raw.githubusercontent.com/reduxjs/redux/master/logo/logo.png"}
         />
         <meta
           property="og:description"

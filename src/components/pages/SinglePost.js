@@ -11,7 +11,6 @@ const SinglePost = () => {
   const data = useSelector((store) => store.singlePostReducer);
   const commentsData = useSelector((store) => store.commentsReducer);
   const router = useRouter();
-
   return data.postData === null ? (
     <>
       <button
@@ -29,9 +28,10 @@ const SinglePost = () => {
   ) : (
     <>
       <Meta
-        title={toTitleCase(data?.postData?.title)}
-        description={data?.postData?.body}
-        keywords={data?.postData?.body.split(" ")}
+      image={data?.postData?.image}
+        title={toTitleCase(data?.postData?.data?.title)}
+        description={data?.postData?.data?.body}
+        keywords={data?.postData?.data?.body.split(" ")}
       />
       <div>
         <button

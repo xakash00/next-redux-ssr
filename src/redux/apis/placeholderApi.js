@@ -12,3 +12,6 @@ export const singlePostApi = (id) => {
 export const commentApi = (id) => {
   return api.get(`/posts/${id}/comments`);
 };
+export const metaImageApi = () => {
+  return axios.get(`https://dog.ceo/api/breeds/image/random`);
+};

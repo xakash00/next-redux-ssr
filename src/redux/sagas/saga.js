@@ -32,7 +32,8 @@ function* fetchSinglePost(action) {
   try {
     yield put({ type: SINGLE_LOADING });
     const res = yield call(placeholderApis.singlePostApi, action.id);
-    yield put({ type: SINGLE_LOADED, id: action.id, data: res.data });
+    const meta = yield call(placeholderApis.metaImageApi);
+    yield put({ type: SINGLE_LOADED, id: action.id, data:{data: res.data,image:meta?.data?.message }});
   } catch (err) {
     console.log(err);
     yield put({
