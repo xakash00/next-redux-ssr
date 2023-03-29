@@ -50,7 +50,7 @@ const Headerlayout = ({ children }) => {
         >
           <Link href={{ pathname: "/" }}>
             <Dflex>
-              <Image src={Logo} width={25} height={25} />
+              <Image src={Logo} width={25} height={25} alt="nav-brand" />
               <NavbarBrand>Next-Redux</NavbarBrand>
             </Dflex>
           </Link>
