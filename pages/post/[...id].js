@@ -8,7 +8,6 @@ import {
 } from "../../src/redux/actions/actions";
 import HeaderLayout from "../../src/components/Layouts/HeaderLayout";
 import SinglePost from "../../src/components/pages/SinglePost";
-import PrivateRoute from "../../src/components/authCheck/PrivateRoute";
 
 const Post = () => {
   return (
